@@ -6,6 +6,6 @@
     "description":"Changes game to govern max fleet size by total deployment points, rather than a hard ship count.",
     "gameVersion":"0.95a-RC15",
     "totalConversion":false,
-    "jars":["jars/FleetSizeByDP.jar"],
+    "jars":["FleetSizeByDP.jar"],
     "modPlugin":"FleetSizeByDP.FleetSizeByDPPlugin",
 }
