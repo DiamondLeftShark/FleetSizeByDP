@@ -1,5 +1,6 @@
 package FleetSizeByDP.com.starfarer.api.impl.campaign.skills;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.impl.campaign.skills.BaseSkillEffectDescription;
 import com.fs.starfarer.api.campaign.FleetDataAPI;
 import com.fs.starfarer.api.characters.FleetTotalItem;
@@ -14,7 +15,8 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 //"Skill" that checks current fleet DP and applies increased supply use/burn speed reduction if over the limit.
 //This skill should only ever be assigned to the main player character, for obvious reasons.
 public class FleetSizeByDP {
-    
+
+    int maxFleetByDP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
     
     public static class Level1 extends BaseSkillEffectDescription implements ShipSkillEffect {
 
@@ -33,6 +35,18 @@ public class FleetSizeByDP {
         public ScopeDescription getScopeDescription() {
 			return ScopeDescription.FLEET;
 		}
+
+        //Calculates extra supplies consumed by fleet.  Should return 0 if current fleet DP <= maxFleetByDP
+        private float calculateExtraSupplies() {
+            //TBD
+            return 0f;
+        }
+
+        //Calculates burn speed reduction for fleet.  Should return 0 if current fleet DP <= maxFleetByDP
+        private float calculateReducedBurnSpeed() {
+            //TBD
+            return 0f;
+        }
 
     }
 

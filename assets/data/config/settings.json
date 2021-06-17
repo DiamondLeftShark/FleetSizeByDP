@@ -1,4 +1,8 @@
 {
+    # settings.json variable overrides
     "showMaxShipsWidgetAtShips":9999, #DO NOT TOUCH
     "maxShipsInFleet":9999, #DO NOT TOUCH
+
+    # mod settings start here 
+    "maxShipsInPlayerFleetByDP": 600,
 }
