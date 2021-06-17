@@ -6,7 +6,7 @@ import FleetSizeByDP.com.starfarer.api.impl.campaign.skills.FleetSizeByDP;
 
 public class FleetSizeByDPPlugin extends BaseModPlugin {
 
-    private boolean ENABLED = Global.getSettings().getBoolean("useFleetSizeByDPMod");
+    private boolean MOD_ENABLED = Global.getSettings().getBoolean("useFleetSizeByDPMod");
 
     /*On game load:
     * Check if FleetSizeByDP skill is assigned to player character
@@ -17,11 +17,12 @@ public class FleetSizeByDPPlugin extends BaseModPlugin {
 
         //Add skill to player character
         //Test to confirm proper way to assign skill to player: rewrite to use fleet_size_by_dp skill
-        if(ENABLED) {
+        if(MOD_ENABLED) {
+            FleetSizeByDP.ENABLED = true;
             Global.getSector().getPlayerPerson().getStats().setSkillLevel("fleet_size_by_dp", 1);
         } 
         else {
-            Global.getSector().getPlayerPerson().getStats().setSkillLevel("fleet_size_by_dp", 0);
+            FleetSizeByDP.ENABLED = false;
         }
 
 

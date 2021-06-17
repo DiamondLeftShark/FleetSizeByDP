@@ -17,6 +17,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 public class FleetSizeByDP {
 
     private int MAX_FLEET_BY_DP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
+    public static boolean ENABLED = false;
     
     //Supply multiplier
     public static String SUPPLIES_BY_FLEET_DP = "supply_use_mult_by_dp";

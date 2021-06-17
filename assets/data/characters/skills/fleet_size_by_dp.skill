@@ -1,6 +1,6 @@
 {
 	"id":"fleet_size_by_dp",
-	"governingAptitude":"leadership",
+	"governingAptitude":"special",
 	"compressHullmods":false,
     "permanent":true,
 	"scope":"FLEET",
