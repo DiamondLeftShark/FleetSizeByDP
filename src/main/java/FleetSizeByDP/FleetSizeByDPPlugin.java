@@ -12,5 +12,8 @@ public class FleetSizeByDPPlugin extends BaseModPlugin {
        // Global.getSettings().setFloat("showMaxShipsWidgetAtShips", 5f);
         int maxFleet = Global.getSettings().getInt("maxShipsInFleet");
         Global.getSector().getCampaignUI().addMessage("FleetSizeByDP loaded: current max fleet size is " + maxFleet + ".");
+
+        //test throw to confirm Starsector is picking up onGameLoad
+        //throw new NullPointerException("Test by FleetSizeByDP");
     }
 }
