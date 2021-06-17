@@ -1,2 +1,2 @@
 id,name,color,description,order,effect_skill_id,sound1,sound2,sound3,sound4,sound5,sound_story,elite_overlay,elite_overlay_medium,elite_overlay_small
-special,Special,"220,94,41,255",Placeholder for skills that should not be elsewhere.,5,aptitude_combat,combat1,combat2,combat3,combat4,combat5,ui_char_spent_story_point_combat,graphics/icons/skills/elite_combat.png,graphics/icons/skills/elite_combat48.png,graphics/icons/skills/elite_combat32.png
+special,Special,"220,94,41,255",Placeholder for skills that should not be elsewhere.,5,aptitude_special,combat1,combat2,combat3,combat4,combat5,ui_char_spent_story_point_combat,graphics/icons/skills/elite_combat.png,graphics/icons/skills/elite_combat48.png,graphics/icons/skills/elite_combat32.png
