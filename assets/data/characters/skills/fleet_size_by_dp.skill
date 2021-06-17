@@ -1,0 +1,15 @@
+{
+	"id":"fleet_size_by_dp",
+	"governingAptitude":"leadership",
+	"compressHullmods":false,
+	"scope":"ALL_SHIPS",
+	"effectGroups":[
+		{
+			"requiredSkillLevel":1,
+			"effectBasedOnLevel":false,
+			"effects":[
+				{"type":"ALL_SHIPS_IN_FLEET", "script":"FleetSizeByDP.com.starfarer.api.impl.campaign.skills.FleetSizeByDP$Level1"},
+			]
+		},
+	],
+}
