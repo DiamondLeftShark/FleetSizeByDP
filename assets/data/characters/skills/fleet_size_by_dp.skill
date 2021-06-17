@@ -2,6 +2,7 @@
 	"id":"fleet_size_by_dp",
 	"governingAptitude":"leadership",
 	"compressHullmods":false,
+    "permanent":true,
 	"scope":"ALL_SHIPS",
 	"effectGroups":[
 		{
