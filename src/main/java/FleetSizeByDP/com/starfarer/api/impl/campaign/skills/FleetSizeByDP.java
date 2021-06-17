@@ -18,14 +18,21 @@ public class FleetSizeByDP {
 
     int maxFleetByDP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
     
-    public static class Level1 extends BaseSkillEffectDescription implements ShipSkillEffect {
+    public static class Level1 extends BaseSkillEffectDescription implements ShipSkillEffect, FleetTotalSource {
+
+        //should display OP total 
+        public FleetTotalItem getFleetTotalItem() {
+			return getOPTotal();
+		}
 
         public void apply(MutableShipStatsAPI stats, HullSize hullSize, String id, float level) {
             //TBD
+            throw new NullPointerException("FleetSizeByDP trying to apply");
         }
 
         public void unapply(MutableShipStatsAPI stats, HullSize hullSize, String id) {
             //TBD
+            throw new NullPointerException("FleetSizeByDP trying to unapply");
         }
 
         public String getEffectDescription(float level) {

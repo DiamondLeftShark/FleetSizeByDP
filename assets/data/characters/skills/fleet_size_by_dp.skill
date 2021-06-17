@@ -3,7 +3,7 @@
 	"governingAptitude":"leadership",
 	"compressHullmods":false,
     "permanent":true,
-	"scope":"ALL_SHIPS",
+	"scope":"FLEET",
 	"effectGroups":[
 		{
 			"requiredSkillLevel":1,

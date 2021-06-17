@@ -12,13 +12,10 @@ public class FleetSizeByDPPlugin extends BaseModPlugin {
     @Override
     public void onGameLoad(boolean newGame) {
 
-        //TBD
+        //Add skill to player character
+        //Test to confirm proper way to assign skill to player: rewrite to use fleet_size_by_dp skill
+        Global.getSector().getPlayerPerson().getStats().setSkillLevel("electronic_warfare", 1);
 
-        //change max ships in player fleet count for testing
-       // Global.getSettings().setFloat("maxShipsInFleet", 10f);
-       // Global.getSettings().setFloat("showMaxShipsWidgetAtShips", 5f);
-        int maxFleet = Global.getSettings().getInt("maxShipsInFleet");
-        Global.getSector().getCampaignUI().addMessage("FleetSizeByDP loaded: current max fleet size is " + maxFleet + ".");
 
         //test throw to confirm Starsector is picking up onGameLoad
         //throw new NullPointerException("Test by FleetSizeByDP");
