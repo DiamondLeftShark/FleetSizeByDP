@@ -16,8 +16,11 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 //This skill should only ever be assigned to the main player character, for obvious reasons.
 public class FleetSizeByDP {
 
-    int maxFleetByDP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
+    private int MAX_FLEET_BY_DP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
     
+    //Supply multiplier
+    public static String SUPPLIES_BY_FLEET_DP = "supply_use_mult_by_dp";
+
     public static class Level1 extends BaseSkillEffectDescription implements ShipSkillEffect, FleetTotalSource {
 
         //should display OP total 
@@ -27,12 +30,15 @@ public class FleetSizeByDP {
 
         public void apply(MutableShipStatsAPI stats, HullSize hullSize, String id, float level) {
             //TBD
-            throw new NullPointerException("FleetSizeByDP trying to apply");
+            id = SUPPLIES_BY_FLEET_DP;
+            float useMult = getFleetSupplyMult();
+            stats.getSuppliesPerMonth().modifyMult(id, useMult);
         }
 
         public void unapply(MutableShipStatsAPI stats, HullSize hullSize, String id) {
             //TBD
-            throw new NullPointerException("FleetSizeByDP trying to unapply");
+            id = SUPPLIES_BY_FLEET_DP;
+            stats.getSuppliesPerMonth().unmodify(id);
         }
 
         public String getEffectDescription(float level) {
@@ -43,18 +49,16 @@ public class FleetSizeByDP {
 			return ScopeDescription.FLEET;
 		}
 
-        //Calculates extra supplies consumed by fleet.  Should return 0 if current fleet DP <= maxFleetByDP
-        private float calculateExtraSupplies() {
-            //TBD
-            return 0f;
+        //TBD add function to calculate fleet supply multiplier
+        private float getFleetSupplyMult() {
+            return 1f;
         }
-
-        //Calculates burn speed reduction for fleet.  Should return 0 if current fleet DP <= maxFleetByDP
-        private float calculateReducedBurnSpeed() {
-            //TBD
-            return 0f;
-        }
-
     }
 
+    //Burn speed multiplier
+/*    
+    public static class Level2 extends BaseSkillEffectDescription implements ShipSkillEffect, FleetTotalSource {
+        
+    } 
+*/
 }
