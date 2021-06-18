@@ -18,6 +18,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 public class FleetSizeByDP {
 
     private static int MAX_FLEET_BY_DP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
+    private static float SUPPLY_PENALTY_MULT = Global.getSettings().getFloat("suppliesPerShipOverMaxInFleet");
     //public static boolean ENABLED = false;
     
     //Supply multiplier
@@ -64,8 +65,9 @@ public class FleetSizeByDP {
                 return 1f;
             } 
             else {
-                //test value
-                return 2f;
+                float baseMult = 1 + Math.max(SUPPLY_PENALTY_MULT, 0);
+                float fleetOverMult = (currentOP / MAX_FLEET_BY_DP);
+                return baseMult * fleetOverMult;
             }
         }
     }
