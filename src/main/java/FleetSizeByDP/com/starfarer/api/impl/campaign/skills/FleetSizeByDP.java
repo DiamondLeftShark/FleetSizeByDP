@@ -17,14 +17,14 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 public class FleetSizeByDP {
 
     private int MAX_FLEET_BY_DP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
-    public static boolean ENABLED = false;
+    //public static boolean ENABLED = false;
     
     //Supply multiplier
     public static String SUPPLIES_BY_FLEET_DP = "supply_use_mult_by_dp";
 
     public static class Level1 extends BaseSkillEffectDescription implements ShipSkillEffect, FleetTotalSource {
 
-        //should display OP total 
+        //display OP total on fleet page
         public FleetTotalItem getFleetTotalItem() {
 			return getOPTotal();
 		}

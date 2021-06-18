@@ -1,6 +1,5 @@
 id,name,order,tier,description,author,combat officer,admiral,admin,tags,icon,
-fleet_size_by_dp,Fleet Size By DP,11000,0,,,,TRUE,,player_only,graphics/icons/skills/fsdp.png,
-aptitude_special,,0,,,,,,,,,
+fleet_size_by_dp,Fleet Size By DP,11000,0,,,,TRUE,,npc_only,graphics/icons/skills/fsdp.png,
 ,,,,,,,,,,,
 ,,,,,,,,,,,
 ,,,,,,,,,,,
