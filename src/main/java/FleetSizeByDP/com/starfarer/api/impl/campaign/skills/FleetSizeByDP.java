@@ -91,7 +91,8 @@ public class FleetSizeByDP {
             //TBD
             id = BURN_MULT_BY_FLEET_DP;
             float burnMult = getFleetBurnMult();
-            Global.getSector().getPlayerFleet().getStats().getFleetwideMaxBurnMod().modifyMult(id, burnMult);
+            String description = "Over max DP burn penalty";
+            Global.getSector().getPlayerFleet().getStats().getFleetwideMaxBurnMod().modifyMult(id, burnMult, description);
         }
 
         public void unapply(MutableShipStatsAPI stats, HullSize hullSize, String id) {
