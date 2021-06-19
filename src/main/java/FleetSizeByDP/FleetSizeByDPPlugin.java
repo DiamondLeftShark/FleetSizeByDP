@@ -2,7 +2,6 @@ package FleetSizeByDP;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
-import FleetSizeByDP.com.starfarer.api.impl.campaign.skills.FleetSizeByDP;
 
 public class FleetSizeByDPPlugin extends BaseModPlugin {
 
