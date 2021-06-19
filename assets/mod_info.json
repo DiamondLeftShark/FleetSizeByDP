@@ -1,9 +1,9 @@
 {
     "id":"fleetsizebydp",
-    "name":"zZz Fleet Size By DP",
+    "name":"Fleet Size By DP (BETA)",
     "author":"Chozo",
-    "version":"1.0",
-    "description":"Changes max fleet size to be determined by DP, rather than ship count.",
+    "version":"0.9.0b",
+    "description":"Changes player's max fleet size to be determined by DP, rather than ship count.",
     "gameVersion":"0.95a-RC15",
     "totalConversion":false,
     "jars":["FleetSizeByDP.jar"],

@@ -1,0 +1,8 @@
+TO DOS:
+
+-Add notification/warning when over fleet DP while on campaign map 
+(similar to vanilla warning when over ship limit)
+
+-Tweak default max DP/penalties based on feedback
+
+-Find a more elegant workaround for Quality Captains compatibility
