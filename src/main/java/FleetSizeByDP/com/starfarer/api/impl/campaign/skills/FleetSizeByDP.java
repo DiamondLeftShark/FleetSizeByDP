@@ -18,6 +18,7 @@ public class FleetSizeByDP {
     private static int MAX_FLEET_BY_DP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
     private static float SUPPLY_PENALTY_MULT = Global.getSettings().getFloat("suppliesPerShipOverMaxInFleet");
     private static float BURN_PENALTY_POW = Global.getSettings().getFloat("burnPenaltyOverDP");
+    //private static boolean MOD_ENABLED = Global.getSettings().getBoolean("useFleetSizeByDPMod");
 
     //helper function for current fleet DP
     public static float getCurrentFleetDP() {
@@ -87,7 +88,6 @@ public class FleetSizeByDP {
 		}
 
         public void apply(MutableShipStatsAPI stats, HullSize hullSize, String id, float level) {
-            //TBD
             id = BURN_MULT_BY_FLEET_DP;
             float burnMult = getFleetBurnMult();
             String description = "Over max DP burn penalty";
@@ -95,7 +95,6 @@ public class FleetSizeByDP {
         }
 
         public void unapply(MutableShipStatsAPI stats, HullSize hullSize, String id) {
-            //TBD
             id = BURN_MULT_BY_FLEET_DP;
             Global.getSector().getPlayerFleet().getStats().getFleetwideMaxBurnMod().unmodifyMult(id);
         }

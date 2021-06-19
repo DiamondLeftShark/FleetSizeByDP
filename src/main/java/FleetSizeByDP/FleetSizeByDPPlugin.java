@@ -2,6 +2,7 @@ package FleetSizeByDP;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
+import FleetSizeByDP.com.starfarer.api.impl.campaign.skills.FleetSizeByDP;
 
 public class FleetSizeByDPPlugin extends BaseModPlugin {
 
@@ -15,7 +16,13 @@ public class FleetSizeByDPPlugin extends BaseModPlugin {
             Global.getSector().getPlayerPerson().getStats().setSkillLevel("fleet_size_by_dp", 1);
         } 
         else {
-            Global.getSector().getPlayerPerson().getStats().setSkillLevel("fleet_size_by_dp", 0);
+            //Global.getSector().getPlayerPerson().getStats().setSkillLevel("fleet_size_by_dp", 0);
+            //remove existing modifiers, if present
+            //getSuppliesPerMonth().unmodify(FleetSizeByDP.SUPPLIES_BY_FLEET_DP);
+            //Global.getSector().getPlayerFleet().getStats().getFleetwideMaxBurnMod().unmodifyMult(FleetSizeByDP.BURN_MULT_BY_FLEET_DP);
+            if(Global.getSector().hasScript(FleetSizeByDP.class)) {
+                Global.getSector().removeScriptsOfClass(FleetSizeByDP.class)
+            }
         }
 
     }
