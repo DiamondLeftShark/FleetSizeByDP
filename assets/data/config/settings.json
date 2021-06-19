@@ -11,4 +11,6 @@
     "maxShipsInPlayerFleetByDP": 600, #max fleet size in DP, ignoring mothballed ships
     "suppliesPerShipOverMaxInFleet":0.2, #from settings.json, determines supply penalty multiplier
                                          #value must be >= 0, higher value = higher penalty
+    "burnPenaltyOverDP": 2, #controls magnitude of burn penalty when over max DP 
+                           #value must be >= 1, higher value = higher penalty
 }                                        

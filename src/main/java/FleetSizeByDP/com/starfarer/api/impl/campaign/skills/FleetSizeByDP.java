@@ -20,7 +20,8 @@ public class FleetSizeByDP {
     //settings.json values
     private static int MAX_FLEET_BY_DP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
     private static float SUPPLY_PENALTY_MULT = Global.getSettings().getFloat("suppliesPerShipOverMaxInFleet");
-    
+    private static float BURN_PENALTY_POW = Global.getSettings().getFloat("burnPenaltyOverDP");
+
     //helper function for current fleet DP
     public static float getCurrentFleetDP() {
         CampaignFleetAPI fleet = Global.getSector().getPlayerFleet();
@@ -116,7 +117,9 @@ public class FleetSizeByDP {
                 return 1f;
             } 
             else {
-                return 0.5f;
+                float power = Math.max(1, BURN_PENALTY_POW);
+                float fleetOverMult = MAX_FLEET_BY_DP / currentDP;
+                return (float) Math.pow(fleetOverMult, power);
             }
         }
 
