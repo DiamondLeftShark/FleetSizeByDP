@@ -34,7 +34,7 @@ have a backup if something goes wrong.
 
 fleet_size_by_dp,Fleet Size By DP,11000,0,,,,TRUE,,npc_only,graphics/icons/skills/fsdp.png,
 
-Do NOT replace or overwrite any existing lines in the file.
+Do NOT delete or overwrite any existing lines in the file.
 
 3. Save and close the file, and start the game as normal.  If done correctly, the game should load with both
 QC's skills and this mod's hidden skill active.
