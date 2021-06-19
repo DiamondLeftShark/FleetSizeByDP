@@ -4,8 +4,10 @@
     "maxShipsInFleet":9999, 
 
     # enable or disable mod for existing games. 
-    #if false, set values above to desired max fleet size and fleet size warning.
+    #if false, comment out settings above and uncomment below to restore default values
     "useFleetSizeByDPMod":true,
+    #"showMaxShipsWidgetAtShips":25,
+    #"maxShipsInFleet":30, 
 
     # mod settings start here 
     "maxShipsInPlayerFleetByDP": 600, #max fleet size in DP, ignoring mothballed ships

@@ -1,5 +1,6 @@
 package FleetSizeByDP.com.starfarer.api.impl.campaign.skills;
 
+import java.awt.Color;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.impl.campaign.skills.BaseSkillEffectDescription;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
@@ -10,6 +11,8 @@ import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
 import com.fs.starfarer.api.characters.ShipSkillEffect;
 import com.fs.starfarer.api.characters.SkillSpecAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
+import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin;
+import com.fs.starfarer.api.impl.campaign.intel.MessageIntel;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
@@ -47,6 +50,16 @@ public class FleetSizeByDP {
             id = SUPPLIES_BY_FLEET_DP;
             float useMult = getFleetSupplyMult();
             stats.getSuppliesPerMonth().modifyMult(id, useMult);
+
+            //inform user if over DP max
+            if(useMult > 1f) {
+                int percent = (int) (useMult - 1) * 100;
+                String warningMessage = "Your fleet is over its " + MAX_FLEET_BY_DP + "DP limit: supply use increased by " + percent + "%.";
+                Color warningColor = Color.red;
+                //MessageIntel messageIntel = new MessageIntel("Your fleet has more than " + n2 + " ships and is using an extra %s supplies per day", D.\u00d2\u00d30000, new String[]{Misc.getRoundedValueMaxOneAfterDecimal((float)f3)}, new Color[]{D.\u00d5O0000});
+                MessageIntel messageIntel = new MessageIntel(warningMessage, warningColor);
+                Global.getSector().getCampaignUI().addMessage((IntelInfoPlugin)messageIntel);
+            }
         }
 
         public void unapply(MutableShipStatsAPI stats, HullSize hullSize, String id) {
@@ -63,7 +76,7 @@ public class FleetSizeByDP {
 		}
 
         //calculate fleet supply multiplier
-        public float getFleetSupplyMult() {
+        public static float getFleetSupplyMult() {
 
             float currentDP = getCurrentFleetDP();
 
@@ -110,7 +123,7 @@ public class FleetSizeByDP {
 			return ScopeDescription.FLEET;
 		}
 
-        public float getFleetBurnMult() {
+        public static float getFleetBurnMult() {
             float currentDP = getCurrentFleetDP();
 
             if(currentDP <= MAX_FLEET_BY_DP) {
