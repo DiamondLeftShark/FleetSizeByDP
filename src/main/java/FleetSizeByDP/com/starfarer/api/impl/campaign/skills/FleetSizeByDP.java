@@ -97,12 +97,22 @@ public class FleetSizeByDP {
             id = BURN_MULT_BY_FLEET_DP;
             float burnMult = getFleetBurnMult();
             String description = "Over max DP burn penalty";
-            Global.getSector().getPlayerFleet().getStats().getFleetwideMaxBurnMod().modifyMult(id, burnMult, description);
+
+            //0.9.1b: potential fix for fleet data being null on load
+            CampaignFleetAPI playerFleet = Global.getSector().getPlayerFleet();
+
+            if(playerFleet != null) {
+                playerFleet.getStats().getFleetwideMaxBurnMod().modifyMult(id, burnMult, description);
+            }
         }
 
         public void unapply(MutableShipStatsAPI stats, HullSize hullSize, String id) {
             id = BURN_MULT_BY_FLEET_DP;
-            Global.getSector().getPlayerFleet().getStats().getFleetwideMaxBurnMod().unmodifyMult(id);
+            //0.9.1b: potential fix for fleet data being null on load
+            CampaignFleetAPI playerFleet = Global.getSector().getPlayerFleet();
+            if(playerFleet != null) {
+                playerFleet.getStats().getFleetwideMaxBurnMod().unmodifyMult(id);
+            }
         }
 
         public String getEffectDescription(float level) {
