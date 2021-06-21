@@ -14,3 +14,4 @@ README.md
 gradle/
 .github/
 LICENSE
+*.zip

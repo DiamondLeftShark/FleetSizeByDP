@@ -25,7 +25,13 @@ public class FleetSizeByDP {
         CampaignFleetAPI fleet = Global.getSector().getPlayerFleet();
         MutableCharacterStatsAPI stats = Global.getSector().getPlayerStats();
 
-        return BaseSkillEffectDescription.getTotalOP(fleet.getFleetData(), stats);
+        //0.9.1b: potential fix for fleet data being null on load
+        if(fleet != null && stats != null) {
+            return BaseSkillEffectDescription.getTotalOP(fleet.getFleetData(), stats);
+        }
+        else {
+            return 0f;
+        }
     }
 
 
