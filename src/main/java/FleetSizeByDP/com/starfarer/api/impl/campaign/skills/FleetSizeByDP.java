@@ -25,7 +25,7 @@ public class FleetSizeByDP {
         CampaignFleetAPI fleet = Global.getSector().getPlayerFleet();
         MutableCharacterStatsAPI stats = Global.getSector().getPlayerStats();
 
-        //0.9.1b: potential fix for fleet data being null on load
+        //0.9.1b: fix for fleet data being null on load
         if(fleet != null && stats != null) {
             return BaseSkillEffectDescription.getTotalOP(fleet.getFleetData(), stats);
         }
@@ -98,7 +98,7 @@ public class FleetSizeByDP {
             float burnMult = getFleetBurnMult();
             String description = "Over max DP burn penalty";
 
-            //0.9.1b: potential fix for fleet data being null on load
+            //0.9.1b: fix for fleet data being null on load
             CampaignFleetAPI playerFleet = Global.getSector().getPlayerFleet();
 
             if(playerFleet != null) {
@@ -108,7 +108,7 @@ public class FleetSizeByDP {
 
         public void unapply(MutableShipStatsAPI stats, HullSize hullSize, String id) {
             id = BURN_MULT_BY_FLEET_DP;
-            //0.9.1b: potential fix for fleet data being null on load
+            //0.9.1b: fix for fleet data being null on load
             CampaignFleetAPI playerFleet = Global.getSector().getPlayerFleet();
             if(playerFleet != null) {
                 playerFleet.getStats().getFleetwideMaxBurnMod().unmodifyMult(id);
