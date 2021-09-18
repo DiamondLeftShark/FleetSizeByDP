@@ -2,6 +2,7 @@ package FleetSizeByDP;
 
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignUIAPI;
 
 import java.awt.Color;
 
@@ -10,6 +11,8 @@ public class FleetSizeByDPNotification implements EveryFrameScript {
     private float CHECK_INTERVAL = 10f;
 
     private float secSinceLastCheck = 0f;
+
+    private String message = "This is a test message from FleetSizeByDP: can you see me?";
     
     @Override
     public boolean isDone() {
@@ -23,17 +26,25 @@ public class FleetSizeByDPNotification implements EveryFrameScript {
 
     @Override
     public void advance(float amount) {
+        secSinceLastCheck += amount;
+        checkStatus();
+    }
+
+    private void checkStatus() {
         //add amount to secSinceLastCheck
         //if secSinceLastCheck >= check_interval:
         //if player is under fleet limit, do nothing
         //otherwise, send notification to player while on campaign map
         //reset secSinceLastCheck to 0 afterwards
-        secSinceLastCheck += amount;
 
         if(secSinceLastCheck >= CHECK_INTERVAL) {
             //notification goes here
-
-            secSinceLastCheck = 0f;
+            Global.getSector().getCampaignUI().addMessage(message, Color.PINK);
+            resetTimer();
         }
+    }
+
+    private void resetTimer() {
+        secSinceLastCheck = 0f;
     }
 }
