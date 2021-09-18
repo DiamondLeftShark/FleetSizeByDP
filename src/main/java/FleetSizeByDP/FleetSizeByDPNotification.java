@@ -31,7 +31,6 @@ public class FleetSizeByDPNotification implements EveryFrameScript {
     }
 
     private void checkStatus() {
-        //add amount to secSinceLastCheck
         //if secSinceLastCheck >= check_interval:
         //if player is under fleet limit, do nothing
         //otherwise, send notification to player while on campaign map
