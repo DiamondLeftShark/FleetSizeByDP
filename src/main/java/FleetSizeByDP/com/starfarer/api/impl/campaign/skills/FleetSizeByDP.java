@@ -18,7 +18,16 @@ public class FleetSizeByDP {
     private static int MAX_FLEET_BY_DP = Global.getSettings().getInt("maxShipsInPlayerFleetByDP");
     private static float SUPPLY_PENALTY_MULT = Global.getSettings().getFloat("suppliesPerShipOverMaxInFleet");
     private static float BURN_PENALTY_POW = Global.getSettings().getFloat("burnPenaltyOverDP");
-    //private static boolean MOD_ENABLED = Global.getSettings().getBoolean("useFleetSizeByDPMod");
+
+    //Supply and burn multiplier ids
+    public static String SUPPLIES_BY_FLEET_DP = "supply_use_mult_by_dp";
+    public static String BURN_MULT_BY_FLEET_DP = "burn_mult_by_dp";
+
+    //v1.0.0: tracking variables for current fleet status, should be set when fleet status is checked
+    //by appropriate functions and referenced as necessary to reduce # of redundant calcs
+    private static boolean fleetOverLimit = false;
+    private static int DPOverLimit = 0;
+    private static int supplyPenaltyInPercent = 0;
 
     //helper function for current fleet DP
     public static float getCurrentFleetDP() {
@@ -34,11 +43,20 @@ public class FleetSizeByDP {
         }
     }
 
+    //v1.0.0: getter functions for fleet status and any associated penalties
+    public static boolean isFleetOverLimit() {
+        return fleetOverLimit;
+    }
+
+    public static int getDPOverLimit() {
+        return DPOverLimit;
+    }
+
+    public static int getSupplyPenaltyInPercent() {
+        return supplyPenaltyInPercent;
+    }
 
     //Level1: implements supply use modifier
-
-    //Supply multiplier id
-    public static String SUPPLIES_BY_FLEET_DP = "supply_use_mult_by_dp";
 
     public static class Level1 extends BaseSkillEffectDescription implements ShipSkillEffect, FleetTotalSource {
 
@@ -84,9 +102,6 @@ public class FleetSizeByDP {
     }
 
     //Level 2: implements burn speed multiplier
-
-    //burn multiplier id
-    public static String BURN_MULT_BY_FLEET_DP = "burn_mult_by_dp";
    
     public static class Level2 extends BaseSkillEffectDescription implements ShipSkillEffect, FleetTotalSource {
         public FleetTotalItem getFleetTotalItem() {
