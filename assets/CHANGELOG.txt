@@ -1,5 +1,5 @@
 1.0.0:
--Add notification to alert player when over fleet DP limit.
+-Add campaign layer notification to alert player when over fleet DP limit.
 
 0.9.1b:
 -Fix for NullPointerException error on game load.
