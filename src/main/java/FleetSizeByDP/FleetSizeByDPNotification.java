@@ -8,7 +8,7 @@ import java.awt.Color;
 
 public class FleetSizeByDPNotification implements EveryFrameScript {
 
-    private float CHECK_INTERVAL = 10f;
+    private float CHECK_INTERVAL = Global.getSettings().getFloat("overDPNotificationInterval");
     private float secSinceLastCheck = 0f;
 
     private String messageA = "Your fleet is over its maximum DP allowance by ";
