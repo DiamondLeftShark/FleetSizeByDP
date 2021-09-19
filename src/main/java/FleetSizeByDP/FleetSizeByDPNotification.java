@@ -43,11 +43,11 @@ public class FleetSizeByDPNotification implements EveryFrameScript {
             //Global.getSector().getCampaignUI().addMessage(message, Color.ORANGE);
 
             if(FleetSizeByDP.isFleetOverLimit()) {
-                float dp = FleetSizeByDP.getDPOverLimit();
-                float supplyPercent = FleetSizeByDP.getSupplyPenaltyInPercent();
+                int dp = Math.round(FleetSizeByDP.getDPOverLimit());
+                int supplyPercent = Math.round(FleetSizeByDP.getSupplyPenaltyInPercent());
                 String message = messageA + dp + messageB + supplyPercent + messageC;
 
-                Global.getSector().getCampaignUI().addMessage(message, Color.ORANGE);
+                Global.getSector().getCampaignUI().addMessage(message, Color.RED);
             }
 
             resetTimer();
