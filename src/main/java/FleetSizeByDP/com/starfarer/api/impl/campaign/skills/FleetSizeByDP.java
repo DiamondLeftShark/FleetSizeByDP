@@ -26,8 +26,8 @@ public class FleetSizeByDP {
     //v1.0.0: tracking variables for current fleet status, should be set when fleet status is checked
     //by appropriate functions and referenced as necessary to reduce # of redundant calcs
     private static boolean fleetOverLimit = false;
-    private static int DPOverLimit = 0;
-    private static int supplyPenaltyInPercent = 0;
+    private static float DPOverLimit = 0;
+    private static float supplyPenaltyInPercent = 0;
 
     //helper function for current fleet DP
     public static float getCurrentFleetDP() {
@@ -48,11 +48,11 @@ public class FleetSizeByDP {
         return fleetOverLimit;
     }
 
-    public static int getDPOverLimit() {
+    public static float getDPOverLimit() {
         return DPOverLimit;
     }
 
-    public static int getSupplyPenaltyInPercent() {
+    public static float getSupplyPenaltyInPercent() {
         return supplyPenaltyInPercent;
     }
 
@@ -91,11 +91,21 @@ public class FleetSizeByDP {
             float currentDP = getCurrentFleetDP();
 
             if(currentDP <= MAX_FLEET_BY_DP) {
+                //v1.0.0: update tracking stats
+                fleetOverLimit = false;
+                DPOverLimit = 0;
+                supplyPenaltyInPercent = 0;
                 return 1f;
             } 
             else {
                 float baseMult = 1 + Math.max(SUPPLY_PENALTY_MULT, 0);
                 float fleetOverMult = (currentDP / MAX_FLEET_BY_DP);
+
+                //v1.0.0
+                fleetOverLimit = true;
+                DPOverLimit = currentDP - MAX_FLEET_BY_DP;
+                supplyPenaltyInPercent = ((baseMult * fleetOverMult) - 1) * 100;
+
                 return baseMult * fleetOverMult;
             }
         }
