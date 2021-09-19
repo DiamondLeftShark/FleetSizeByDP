@@ -33,14 +33,8 @@ public class FleetSizeByDPNotification implements EveryFrameScript {
     }
 
     private void checkStatus() {
-        //if secSinceLastCheck >= check_interval:
-        //if player is under fleet limit, do nothing
-        //otherwise, send notification to player while on campaign map
-        //reset secSinceLastCheck to 0 afterwards
 
         if(secSinceLastCheck >= CHECK_INTERVAL) {
-            //notification goes here
-            //Global.getSector().getCampaignUI().addMessage(message, Color.ORANGE);
 
             if(FleetSizeByDP.isFleetOverLimit()) {
                 int dp = Math.round(FleetSizeByDP.getDPOverLimit());

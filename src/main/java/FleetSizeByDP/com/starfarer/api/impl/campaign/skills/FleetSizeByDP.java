@@ -23,8 +23,7 @@ public class FleetSizeByDP {
     public static String SUPPLIES_BY_FLEET_DP = "supply_use_mult_by_dp";
     public static String BURN_MULT_BY_FLEET_DP = "burn_mult_by_dp";
 
-    //v1.0.0: tracking variables for current fleet status, should be set when fleet status is checked
-    //by appropriate functions and referenced as necessary to reduce # of redundant calcs
+    //v1.0.0: tracking variables for current fleet status
     private static boolean fleetOverLimit = false;
     private static float DPOverLimit = 0;
     private static float supplyPenaltyInPercent = 0;
@@ -43,7 +42,7 @@ public class FleetSizeByDP {
         }
     }
 
-    //v1.0.0: getter functions for fleet status and any associated penalties
+    //v1.0.0: getter functions for fleet status and associated penalties
     public static boolean isFleetOverLimit() {
         return fleetOverLimit;
     }
@@ -122,7 +121,7 @@ public class FleetSizeByDP {
         public void apply(MutableShipStatsAPI stats, HullSize hullSize, String id, float level) {
             id = BURN_MULT_BY_FLEET_DP;
             float burnMult = getFleetBurnMult();
-            String description = "Over max DP burn penalty";
+            String description = "Over maximum DP burn penalty";
 
             //0.9.1b: fix for fleet data being null on load
             CampaignFleetAPI playerFleet = Global.getSector().getPlayerFleet();

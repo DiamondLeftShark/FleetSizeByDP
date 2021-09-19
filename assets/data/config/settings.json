@@ -13,5 +13,5 @@
                                          #value must be >= 0, higher value = higher penalty
     "burnPenaltyOverDP": 2, #controls magnitude of burn penalty when over max DP 
                            #value must be >= 1, higher value = higher penalty
-    "overDPNotificationInterval": 20f, #controls interval for over-DP warning in seconds
+    "overDPNotificationInterval": 10, #controls interval for over-DP warning in seconds
 }                                        
