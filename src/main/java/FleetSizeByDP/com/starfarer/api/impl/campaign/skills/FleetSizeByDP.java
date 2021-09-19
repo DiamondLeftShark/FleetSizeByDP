@@ -95,6 +95,7 @@ public class FleetSizeByDP {
                 fleetOverLimit = false;
                 DPOverLimit = 0;
                 supplyPenaltyInPercent = 0;
+                
                 return 1f;
             } 
             else {

@@ -2,16 +2,18 @@ package FleetSizeByDP;
 
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
+import FleetSizeByDP.com.starfarer.api.impl.campaign.skills.FleetSizeByDP;
 
 import java.awt.Color;
 
 public class FleetSizeByDPNotification implements EveryFrameScript {
 
     private float CHECK_INTERVAL = 10f;
-
     private float secSinceLastCheck = 0f;
 
-    private String message = "This is a test message from FleetSizeByDP: can you see me?";
+    private String messageA = "Your fleet is over its maximum DP allowance by ";
+    private String messageB = " DP.  Supply use increased by ";
+    private String messageC = "% and maximum burn speed reduced.";
     
     @Override
     public boolean isDone() {
@@ -26,6 +28,7 @@ public class FleetSizeByDPNotification implements EveryFrameScript {
     @Override
     public void advance(float amount) {
         secSinceLastCheck += amount;
+
         checkStatus();
     }
 
@@ -37,7 +40,16 @@ public class FleetSizeByDPNotification implements EveryFrameScript {
 
         if(secSinceLastCheck >= CHECK_INTERVAL) {
             //notification goes here
-            Global.getSector().getCampaignUI().addMessage(message, Color.PINK);
+            //Global.getSector().getCampaignUI().addMessage(message, Color.ORANGE);
+
+            if(FleetSizeByDP.isFleetOverLimit()) {
+                float dp = FleetSizeByDP.getDPOverLimit();
+                float supplyPercent = FleetSizeByDP.getSupplyPenaltyInPercent();
+                String message = messageA + dp + messageB + supplyPercent + messageC;
+
+                Global.getSector().getCampaignUI().addMessage(message, Color.ORANGE);
+            }
+
             resetTimer();
         }
     }
