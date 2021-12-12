@@ -1,3 +1,7 @@
+1.0.1b:
+-Update skill_data.csv file to match new format in 0.95.1a. 
+-Update README. (TODO)
+
 1.0.0:
 -Add campaign layer notification to alert player when over fleet DP limit.
 
