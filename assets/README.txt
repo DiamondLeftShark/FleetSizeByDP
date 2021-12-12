@@ -30,7 +30,7 @@ I recommend making a copy of this file before continuing so that you have a back
 
 2. Copy and paste the following line on a new line at the bottom of the file:
 
-fleet_size_by_dp,Fleet Size By DP,11000,0,,,,TRUE,,npc_only,graphics/icons/skills/fsdp.png,
+fleet_size_by_dp,Fleet Size By DP,11000,0,,,,,,TRUE,,npc_only,graphics/icons/skills/fsdp.png,
 
 Do NOT delete or overwrite any existing lines in the file.
 

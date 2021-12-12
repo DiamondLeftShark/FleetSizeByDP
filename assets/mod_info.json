@@ -4,7 +4,7 @@
     "author":"Chozo",
     "version":"1.0.0",
     "description":"Changes player's max fleet size to be determined by DP, rather than ship count.",
-    "gameVersion":"0.95a-RC15",
+    "gameVersion":"0.95.1a-RC5",
     "totalConversion":false,
     "jars":["FleetSizeByDP.jar"],
     "modPlugin":"FleetSizeByDP.FleetSizeByDPPlugin",
