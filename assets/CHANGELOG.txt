@@ -1,3 +1,7 @@
+1.0.2:
+[TO DO]-Add toggle for notification when over fleet DP limit.
+[TO DO]-Add option to increase max number of ships recoverable after battle.
+
 1.0.1b:
 -Update skill_data.csv file to match new format in 0.95.1a. 
 -Update README.
