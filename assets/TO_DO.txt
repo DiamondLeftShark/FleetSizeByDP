@@ -1,4 +1,0 @@
-TO DOS:
-
--Implement similar functionality for NPC fleets (e.g. fleets built around DP limit, with varying # of ships/types)
-
