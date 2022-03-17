@@ -9,6 +9,7 @@ import FleetSizeByDP.com.starfarer.api.impl.campaign.skills.FleetSizeByDP;
 public class FleetSizeByDPPlugin extends BaseModPlugin {
 
     private boolean MOD_ENABLED = Global.getSettings().getBoolean("useFleetSizeByDPMod");
+    private boolean NOTIFICATIONS_ENABLED = Global.getSettings.getBoolean("fsdpEnableNotification");
 
     private static FleetSizeByDPNotification notification;
 
@@ -20,8 +21,11 @@ public class FleetSizeByDPPlugin extends BaseModPlugin {
             Global.getSector().getPlayerPerson().getStats().setSkillLevel("fleet_size_by_dp", 1);
 
             //v1.0.0: add notification script on game load if mod enabled
-            notification = new FleetSizeByDPNotification();
-            Global.getSector().addTransientScript(notification);
+            //v1.0.2: add handling for settings toggle
+            if(NOTIFICATIONS_ENABLED) {
+                notification = new FleetSizeByDPNotification();
+                Global.getSector().addTransientScript(notification);
+            }
         } 
         //if disabled, set skill to 0 and remove existing modifiers
         else {

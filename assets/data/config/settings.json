@@ -14,4 +14,10 @@
     "burnPenaltyOverDP": 2, #controls magnitude of burn penalty when over max DP 
                            #value must be >= 1, higher value = higher penalty
     "overDPNotificationInterval": 10, #controls interval for over-DP warning in seconds
+
+    #Experimental settings.  Change only if encountering performance issues 
+    "fsdpEnableNotification": true, #enables or disables notifications on campaign layer
+
+
+
 }                                        
